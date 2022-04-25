@@ -1,0 +1,14 @@
+{
+    "editor.rulers": [
+        99
+    ],
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "python.linting.mypyEnabled": true,
+    "esbonio.server.enabled": false,
+}
