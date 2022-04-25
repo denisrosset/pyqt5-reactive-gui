@@ -1,18 +1,12 @@
 import copy
 import functools
-import gc
-import inspect
 import json
 import pprint
 import random
-import sys
 import time
 import types
-import weakref
-from json.encoder import py_encode_basestring_ascii
 from threading import Timer
 
-import cv2
 import jsonpickle
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QThread, forcepoint, pyqtSignal, pyqtSlot
@@ -1542,115 +1536,3 @@ class Pyqt5_app(QWidget):
 
     def render_view_without_reset(self):
         self.view_template.render_view_without_reset()
-
-
-if __name__ == "__main__":
-
-    qApplication = QApplication(sys.argv)
-
-    pyqt5_app = Pyqt5_app()
-
-    sys.exit(qApplication.exec_())
-
-"""
-        {
-            "qt_constructor": "QVBoxLayout",  
-            "for": "obj1, index in a_some_deep_nested_shits",
-            "c": [
-                {
-                    "qt_constructor":"QLabel",
-                    "c":"obj1.whichstring.value"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "for": "obj2, index in obj1.yet_more_nested_array",
-                    "c": "'yet_more_nested_array'+str(obj2.whichstring.value)"
-                },
-            ]
-
-        },
-        lets assume 
-        a_some_deep_nested_shits = [o1,o2,o3]
-        and
-        yet_more_nested_array = [n1,n2,n3,n4]
-
-        would result in 
-        {
-            "qt_constructor": "QVBoxLayout",  
-            "c": [
-                {
-                    "qt_constructor":"QLabel",
-                    "c":"o1"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n1"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n2"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n3"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n4"
-                },
-            ]
-
-        },
-        {
-            "qt_constructor": "QVBoxLayout",  
-            "c": [
-                {
-                    "qt_constructor":"QLabel",
-                    "c":"o2"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n1"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n2"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n3"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n4"
-                },
-            ]
-
-        },
-        {
-            "qt_constructor": "QVBoxLayout",  
-            "c": [
-                {
-                    "qt_constructor":"QLabel",
-                    "c":"o3"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n1"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n2"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n3"
-                },
-                {
-                    "qt_constructor":"QLabel",
-                    "c": "n4"
-                },
-            ]
-
-        },
-"""
